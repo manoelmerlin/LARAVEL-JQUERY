@@ -8,6 +8,9 @@ Use App\Categoria;
 
 class ControladorProduto extends Controller
 {
+
+    private $produtos1 = ["Televisao 40", "Notebook Acer", "Impressora HP", "HD Externo"];
+
     /**
      * Display a listing of the resource.
      *
@@ -115,5 +118,15 @@ class ControladorProduto extends Controller
         }
         return response('Produto não encontrado', 404);
 
+    }
+
+    public function showProducts() {
+        echo "<h3>Produtos</h3>";
+        echo "<ol>";
+        foreach ($this->produtos1 as $p) {
+            echo "<li>" . $p . "</li>";
+        }     
+            echo "</ol>";
+        
     }
 }

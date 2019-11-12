@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Middleware\PrimeiroMiddleware;
-
-
-
 Route::get('/', function () {
     return view('index');
 });
@@ -17,4 +13,11 @@ Route::get('/categorias/editar/{id}', 'ControladorCategoria@edit');
 Route::post('/categorias/{id}', 'ControladorCategoria@update');
 
 
-Route::get('/usuarios', 'UsuarioControlador@index')->middleware('primeiro');
+Route::get('/usuarios', 'UsuarioControlador@index');
+
+Route::get('/terceiro', function () {
+    return "Passou pelo terceiro middleware";
+})->middleware('terceiro:joao,19');
+
+
+Route::get('/produtos1', 'ControladorProduto@showProducts');
